@@ -1,0 +1,8 @@
+# Ignore build artifacts
+build/
+*.o
+*.bin
+*.iso
+
+# Ignore system files
+.DS_Store
