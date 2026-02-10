@@ -1,13 +1,9 @@
-# Docker wrapper
-DOCKER_CMD = docker run --rm -v $(shell pwd):/root/env -w /root/env aegis-compiler
-
-# Tools
-CC = $(DOCKER_CMD) gcc
-AS = $(DOCKER_CMD) nasm
-LD = $(DOCKER_CMD) ld
+# Tools (Assumes they are already installed in the environment)
+CC = gcc
+AS = nasm
+LD = ld
 
 # Flags
-# -n: Disable page alignment (Fixes the "Header not found" QEMU bug)
 CFLAGS = -m32 -ffreestanding -O2 -nostdlib -fno-pie -fno-stack-protector
 LDFLAGS = -m elf_i386 -T src/link.ld -n
 
